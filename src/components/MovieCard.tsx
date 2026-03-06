@@ -1,3 +1,4 @@
+import { MovieActor } from "@/types/movie";
 import Link from "next/link";
 
 type Genre = {
@@ -14,6 +15,7 @@ type Movie = {
   releaseDate: string;
   popularity: number;
   genre: Genre;
+  actors: MovieActor[];
 };
 
 type MovieCardProps = {
@@ -38,28 +40,12 @@ export default function MovieCard({ movie }: MovieCardProps) {
 
         <div className="mt-4 space-y-2 text-sm text-gray-700">
           <p>
-            <span className="font-semibold text-gray-900">Duration:</span>{" "}
-            {movie.duration} min
-          </p>
-
-          <p>
-            <span className="font-semibold text-gray-900">Country:</span>{" "}
-            {movie.country}
-          </p>
-
-          <p>
             <span className="font-semibold text-gray-900">Release date:</span>{" "}
             {formattedReleaseDate}
           </p>
-
           <p>
-            <span className="font-semibold text-gray-900">Popularity:</span>{" "}
-            {movie.popularity}
-          </p>
-
-          <p>
-            <span className="font-semibold text-gray-900">Genre:</span>{" "}
-            {movie.genre?.type ?? "Unknown"}
+            <span className="font-semibold text-gray-900">Actor:</span>{" "}
+            {movie.actors[0]?.name}
           </p>
         </div>
 

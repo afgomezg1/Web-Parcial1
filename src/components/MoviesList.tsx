@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import MovieCard from "@/components/MovieCard";
+import { MovieActor } from "@/types/movie";
 
 type Genre = {
   id: string;
@@ -17,6 +18,7 @@ type Movie = {
   releaseDate: string;
   popularity: number;
   genre: Genre;
+  actors: MovieActor[];
 };
 
 const API_URL = "http://localhost:3000/api/v1/movies";
