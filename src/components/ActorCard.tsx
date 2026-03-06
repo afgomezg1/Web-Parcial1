@@ -6,9 +6,13 @@ import { Actor, useActorsStore } from "@/store/actorsStore";
 
 type ActorCardProps = {
   actor: Actor;
+  showActions?: boolean;
 };
 
-export default function ActorCard({ actor }: ActorCardProps) {
+export default function ActorCard({
+  actor,
+  showActions = true,
+}: ActorCardProps) {
   const deleteActor = useActorsStore((state) => state.deleteActor);
 
   const [deleting, setDeleting] = useState(false);
@@ -77,23 +81,25 @@ export default function ActorCard({ actor }: ActorCardProps) {
           </div>
         )}
 
-        <div className="mt-6 flex gap-3">
-          <Link
-            href={`/actors/${actor.id}/edit`}
-            className="inline-flex flex-1 items-center justify-center rounded-lg bg-black px-4 py-3 text-sm font-semibold text-white transition hover:bg-gray-800"
-          >
-            Edit
-          </Link>
+        {showActions && (
+          <div className="mt-6 flex gap-3">
+            <Link
+              href={`/actors/${actor.id}/edit`}
+              className="inline-flex flex-1 items-center justify-center rounded-lg bg-black px-4 py-3 text-sm font-semibold text-white transition hover:bg-gray-800"
+            >
+              Edit
+            </Link>
 
-          <button
-            type="button"
-            onClick={handleDelete}
-            disabled={deleting}
-            className="inline-flex flex-1 items-center justify-center rounded-lg bg-red-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {deleting ? "Deleting..." : "Delete"}
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={handleDelete}
+              disabled={deleting}
+              className="inline-flex flex-1 items-center justify-center rounded-lg bg-red-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {deleting ? "Deleting..." : "Delete"}
+            </button>
+          </div>
+        )}
       </div>
     </article>
   );

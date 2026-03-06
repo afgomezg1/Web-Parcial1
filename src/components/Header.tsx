@@ -16,6 +16,11 @@ export default function Header() {
               </Link>
             </li>
             <li>
+              <Link href="/movies" className="transition hover:text-gray-700">
+                Movies
+              </Link>
+            </li>
+            <li>
               <Link href="/actors" className="transition hover:text-gray-700">
                 Actors
               </Link>
