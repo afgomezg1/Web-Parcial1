@@ -56,6 +56,10 @@ export type Movie = {
   platforms: Platform[];
   reviews: Review[];
   youtubeTrailer: YoutubeTrailer;
+  prizes: {
+    id: string;
+    name: string;
+  }[];
 };
 
 export type CreateReviewInput = {

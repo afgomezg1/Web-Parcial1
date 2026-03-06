@@ -16,6 +16,10 @@ type Movie = {
   popularity: number;
   genre: Genre;
   actors: MovieActor[];
+  prizes?: {
+    id: string;
+    name: string;
+  }[];
 };
 
 type MovieCardProps = {
@@ -46,6 +50,10 @@ export default function MovieCard({ movie }: MovieCardProps) {
           <p>
             <span className="font-semibold text-gray-900">Actor:</span>{" "}
             {movie.actors[0]?.name}
+          </p>
+          <p>
+            <span className="font-semibold text-gray-900">Prizes:</span>{" "}
+            {movie.prizes?.[0]?.name || "None"}
           </p>
         </div>
 

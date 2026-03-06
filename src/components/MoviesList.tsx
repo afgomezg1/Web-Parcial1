@@ -19,6 +19,10 @@ type Movie = {
   popularity: number;
   genre: Genre;
   actors: MovieActor[];
+  prizes?: {
+    id: string;
+    name: string;
+  }[];
 };
 
 const API_URL = "http://localhost:3000/api/v1/movies";
